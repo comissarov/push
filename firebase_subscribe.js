@@ -4,34 +4,29 @@ firebase.initializeApp({
 });
 
 $(document).on('ready', function() {
-    $('#subscribe').on('click', function () {
-        console.log('+++');
-        subscribe();
-    });
+    // браузер поддерживает уведомления
+    // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
+    if ('Notification' in window) {
+        var messaging = firebase.messaging();
+
+        // пользователь уже разрешил получение уведомлений
+        // подписываем на уведомления если ещё не подписали
+        if (Notification.permission === 'granted') {
+            subscribe();
+        }
+
+        // по клику, запрашиваем у пользователя разрешение на уведомления
+        // и подписываем его
+        $('#subscribe').on('click', function () {
+            console.log('***');
+            subscribe();
+        });
+    }
 });
 
-// браузер поддерживает уведомления
-// вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
-if ('Notification' in window) {
-    console.log('Checking');
-    var messaging = firebase.messaging();
 
-    // пользователь уже разрешил получение уведомлений
-    // подписываем на уведомления если ещё не подписали
-    if (Notification.permission === 'granted') {
-        subscribe();
-    }
-
-    // по клику, запрашиваем у пользователя разрешение на уведомления
-    // и подписываем его
-    $('#subscribe').on('click', function () {
-        console.log('press button');
-        subscribe();
-    });
-}
 
 function subscribe() {
-    console.log('*** SUB ***');
     // запрашиваем разрешение на получение уведомлений
     messaging.requestPermission()
         .then(function () {
@@ -51,10 +46,10 @@ function subscribe() {
                     console.warn('При получении токена произошла ошибка.', err);
                     setTokenSentToServer(false);
                 });
-    })
-    .catch(function (err) {
-        console.warn('Не удалось получить разрешение на показ уведомлений.', err);
-    });
+        })
+        .catch(function (err) {
+            console.warn('Не удалось получить разрешение на показ уведомлений.', err);
+        });
 }
 
 // отправка ID на сервер
