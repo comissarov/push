@@ -38,16 +38,19 @@ function subscribe() {
                     if (currentToken) {
                         sendTokenToServer(currentToken);
                     } else {
+                        alert ('Не удалось получить токен.');
                         console.warn('Не удалось получить токен.');
                         setTokenSentToServer(false);
                     }
                 })
                 .catch(function (err) {
+                    alert('При получении токена произошла ошибка => '+err);
                     console.warn('При получении токена произошла ошибка.', err);
                     setTokenSentToServer(false);
                 });
         })
         .catch(function (err) {
+            alert('Не удалось получить разрешение на показ уведомлений => '+err);
             console.warn('Не удалось получить разрешение на показ уведомлений.', err);
         });
 }
@@ -57,10 +60,10 @@ function sendTokenToServer(currentToken) {
     if (!isTokenSentToServer(currentToken)) {
         console.log('Отправка токена на сервер...');
 
-        var url = ''; // адрес скрипта на сервере который сохраняет ID устройства
-        $.post(url, {
-            token: currentToken
-        });
+        //var url = ''; // адрес скрипта на сервере который сохраняет ID устройства
+        //$.post(url, {
+        //    token: currentToken
+        //});
 
         setTokenSentToServer(currentToken);
     } else {
