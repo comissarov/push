@@ -6,4 +6,4 @@ firebase.initializeApp({
     messagingSenderId: '877843245951'
 });
 
-const messaging = firebase.messaging();
+var messaging = firebase.messaging();
