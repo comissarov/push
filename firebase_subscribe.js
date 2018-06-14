@@ -3,7 +3,7 @@ firebase.initializeApp({
     messagingSenderId: '877843245951'
 });
 
-$(document)on('ready', function() {
+$(document).on('ready', function() {
     $('#subscribe').on('click', function () {
         console.log('+++');
         subscribe();
