@@ -3,6 +3,13 @@ firebase.initializeApp({
     messagingSenderId: '877843245951'
 });
 
+$(document)on('ready', function() {
+    $('#subscribe').on('click', function () {
+        console.log('///\\\');
+        subscribe();
+    });
+});
+
 // браузер поддерживает уведомления
 // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
 if ('Notification' in window) {
