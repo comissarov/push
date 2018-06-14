@@ -5,7 +5,7 @@ firebase.initializeApp({
 
 $(document)on('ready', function() {
     $('#subscribe').on('click', function () {
-        console.log('///\\\');
+        console.log('+++');
         subscribe();
     });
 });
