@@ -24,6 +24,7 @@ if ('Notification' in window) {
 }
 
 function subscribe() {
+    console.log('*** SUB ***');
     // запрашиваем разрешение на получение уведомлений
     messaging.requestPermission()
         .then(function () {
