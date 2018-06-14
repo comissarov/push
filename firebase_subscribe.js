@@ -6,7 +6,7 @@ firebase.initializeApp({
 // браузер поддерживает уведомления
 // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
 if ('Notification' in window) {
-    conole.log('Checking');
+    console.log('Checking');
     var messaging = firebase.messaging();
 
     // пользователь уже разрешил получение уведомлений
