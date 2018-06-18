@@ -20,14 +20,7 @@ if (
 
     $('.sub_yes').on('click', function() {
         getToken();
-        $(this.closest('.push')).toggleClass('hidden');
-    });
-
-    $('#btn_activate_push').on('click', function() {
-        $('#mark_01').toggleClass('hidden');
-        $('.info_txt').toggleClass('hidden_span');
-        $(this).fadeOut(function(){ $(this).remove(); });
-        getToken();
+        console.log('TYT');
     });
 
 
