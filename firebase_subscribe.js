@@ -17,7 +17,7 @@ if (
     if (Notification.permission === 'granted') {
         getToken();
     }
-    conole.log('Is OK');
+    console.log('Is OK');
     $('.sub_yes').on('click', function() {
         getToken();
         console.log('TYT');
