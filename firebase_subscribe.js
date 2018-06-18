@@ -2,7 +2,15 @@
 firebase.initializeApp({
     messagingSenderId: '877843245951'
 });
-
+$(document).on('ready', function() {
+    $('#subscribe').on('click', function() {
+        if(checked) {
+            console.log('TYT');
+            getToken();
+            console.log('TYT2');
+        }
+    });
+});
 
 if (
     window.location.protocol === 'https:' &&
@@ -17,13 +25,7 @@ if (
     if (Notification.permission === 'granted') {
         getToken();
     }
-    console.log('Is OK');
-    $('#subscribe').on('click', function() {
-        console.log('TYT');
-        getToken();
-        console.log('TYT2');
-    });
-
+    var checked = true;
 
     // handle catch the notification on current page
     messaging.onMessage(function(payload) {
