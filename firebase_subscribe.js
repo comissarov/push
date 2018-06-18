@@ -58,7 +58,7 @@ if (
                 updateUIForPushEnabled(refreshedToken);
             })
             .catch(function(error) {
-                showError('Unable to retrieve refreshed token', error);
+                console.log('Unable to retrieve refreshed token' + error);
             });
     });
 
@@ -100,7 +100,7 @@ function getToken() {
                     });
             })
             .catch(function(error) {
-                showError('Unable to get permission to notify', error);
+                console.log('Unable to get permission to notify' + error);
             });
     var push_txt = '<div class="push_container"><table><tr><td width="65px"><div class="mark_container"><div id="mark_01"><div class="circle_icon"></div></div></div></td><td><div class="info_txt">Вы подписаны на сообщения о свежих новостях</div></td><td width="45px"><div class="close_push"></div></td></tr></table></div>'
     $('#push').html(push_txt);
