@@ -18,9 +18,10 @@ if (
         getToken();
     }
     console.log('Is OK');
-    $('.sub_yes').on('click', function() {
-        getToken();
+    $('#subscribe').on('click', function() {
         console.log('TYT');
+        getToken();
+        console.log('TYT2');
     });
 
 
